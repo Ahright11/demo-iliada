@@ -1,6 +1,8 @@
 import { MapPin, Phone, Clock, Instagram, Facebook, UtensilsCrossed } from 'lucide-react';
 import { siteConfig } from '@/config/site.config';
 
+const hasEvents = siteConfig.events && siteConfig.events.length > 0;
+
 const Footer = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -29,7 +31,7 @@ const Footer = () => {
                 { href: '#home', label: 'Αρχική' },
                 { href: '#booking', label: 'Κράτηση' },
                 { href: '#menu', label: 'Μενού' },
-                { href: '#music', label: 'Ζωντανή Μουσική' },
+                ...(hasEvents ? [{ href: '#music', label: 'Ζωντανή Μουσική' }] : []),
                 { href: '#gallery', label: 'Φωτογραφίες' },
                 { href: '#about', label: 'Η Ιστορία μας' },
               ].map((link) => (

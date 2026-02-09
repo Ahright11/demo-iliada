@@ -11,7 +11,7 @@ const AboutSection = () => {
             <div className="relative">
               <img
                 src={ownerImage}
-                alt="Ο ιδιοκτήτης της Μουσικής Γωνιάς"
+                alt={`${siteConfig.about.founderName} - ${siteConfig.businessName}`}
                 className="w-full rounded-2xl shadow-taverna-elevated"
               />
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary rounded-xl flex items-center justify-center">
@@ -28,29 +28,21 @@ const AboutSection = () => {
             <h2 className="taverna-heading mb-6">Η Ιστορία μας</h2>
 
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Η <strong className="text-foreground">{siteConfig.businessName}</strong> άνοιξε τις πόρτες της το {siteConfig.foundedYear}
-                από τον {siteConfig.about.founderRelation} {siteConfig.about.founderName}, με όνειρο να φέρει τις αυθεντικές γεύσεις της {siteConfig.about.familyRelation}ς {siteConfig.about.familyMember}ς
-                σε κάθε τραπέζι της {siteConfig.about.location}.
-              </p>
+              <p>{siteConfig.about.story}</p>
 
-              <p>
-                Τρεις γενιές μετά, συνεχίζουμε να μαγειρεύουμε τις ίδιες οικογενειακές συνταγές
-                με την ίδια αγάπη και προσοχή. Κάθε πιάτο που σερβίρουμε φέρνει μαζί του την
-                ιστορία και την παράδοση του τόπου μας.
-              </p>
+              {siteConfig.about.sourcing && siteConfig.about.sourcing.length > 0 && (
+                <ul className="space-y-1">
+                  {siteConfig.about.sourcing.map((item: string, i: number) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <span className="text-primary">•</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
 
-              <p>
-                Χρησιμοποιούμε μόνο <strong className="text-foreground">φρέσκα, τοπικά υλικά</strong> —
-                ελαιόλαδο από τους δικούς μας ελαιώνες, λαχανικά από παραγωγούς της περιοχής,
-                και κρέατα από επιλεγμένους κτηνοτρόφους.
-              </p>
-
-              <p>
-                Η ζωντανή μουσική κάθε Παρασκευή και Σάββατο δεν είναι απλά ψυχαγωγία —
-                είναι μέρος της παράδοσης που τιμούμε. Γιατί στην Ελλάδα, το φαγητό
-                και η μουσική πάνε πάντα μαζί.
-              </p>
+              {siteConfig.about.musicNights && (
+                <p>{siteConfig.about.musicNights}</p>
+              )}
             </div>
 
             <div className="mt-8 pt-6 border-t border-border">

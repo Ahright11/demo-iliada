@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Calendar, Clock, Users, Check, Loader2, Music } from 'lucide-react';
+import { siteConfig } from '@/config/site.config';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -280,17 +281,19 @@ const BookingSection = () => {
                 />
               </div>
 
-              <div className="flex items-center space-x-3 p-4 bg-secondary/10 rounded-lg">
-                <Checkbox
-                  id="musicTable"
-                  checked={musicTable}
-                  onCheckedChange={(checked) => setMusicTable(checked as boolean)}
-                />
-                <Label htmlFor="musicTable" className="flex items-center gap-2 cursor-pointer">
-                  <Music className="h-4 w-4 text-secondary" />
-                  Θέλω τραπέζι κοντά στη μουσική
-                </Label>
-              </div>
+              {siteConfig.events && siteConfig.events.length > 0 && (
+                <div className="flex items-center space-x-3 p-4 bg-secondary/10 rounded-lg">
+                  <Checkbox
+                    id="musicTable"
+                    checked={musicTable}
+                    onCheckedChange={(checked) => setMusicTable(checked as boolean)}
+                  />
+                  <Label htmlFor="musicTable" className="flex items-center gap-2 cursor-pointer">
+                    <Music className="h-4 w-4 text-secondary" />
+                    Θέλω τραπέζι κοντά στη μουσική
+                  </Label>
+                </div>
+              )}
 
               <Button 
                 type="submit" 

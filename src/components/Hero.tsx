@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Εσωτερικό της ταβέρνας Μουσική Γωνιά"
+          alt={`${siteConfig.businessName}`}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-hero-gradient" />

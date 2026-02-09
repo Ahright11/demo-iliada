@@ -1,6 +1,7 @@
 import { Music, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { upcomingEvents } from '@/lib/eventsData';
+import { siteConfig } from '@/config/site.config';
 import musicImage from '@/assets/music-performance.jpg';
 
 const MusicSection = () => {
@@ -17,7 +18,7 @@ const MusicSection = () => {
       <div className="absolute inset-0">
         <img 
           src={musicImage} 
-          alt="Ζωντανή μουσική στη Μουσική Γωνιά" 
+          alt={`Ζωντανή μουσική στο ${siteConfig.businessName}`}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-wood/95 via-wood/85 to-wood/70" />
@@ -34,8 +35,7 @@ const MusicSection = () => {
           </div>
           
           <p className="text-xl text-cream/80 mb-10 max-w-2xl">
-            Κάθε Παρασκευή & Σάββατο απολαύστε αυθεντική ελληνική μουσική με 
-            παραδοσιακά όργανα και τραγούδια που ζωντανεύουν τις βραδιές μας.
+            {siteConfig.about.musicNights || 'Απολαύστε αυθεντική ελληνική μουσική με παραδοσιακά όργανα και τραγούδια που ζωντανεύουν τις βραδιές μας.'}
           </p>
 
           {/* Upcoming Events */}

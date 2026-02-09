@@ -3,11 +3,13 @@ import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site.config';
 
+const hasEvents = siteConfig.events && siteConfig.events.length > 0;
+
 const navLinks = [
   { href: '#home', label: 'Αρχική' },
   { href: '#booking', label: 'Κράτηση' },
   { href: '#menu', label: 'Μενού' },
-  { href: '#music', label: 'Μουσική' },
+  ...(hasEvents ? [{ href: '#music', label: 'Μουσική' }] : []),
   { href: '#about', label: 'Η Ιστορία μας' },
   { href: '#contact', label: 'Επικοινωνία' },
 ];

@@ -10,8 +10,11 @@ import LocationSection from '@/components/LocationSection';
 import ContactSection from '@/components/ContactSection';
 import DeliverySection from '@/components/DeliverySection';
 import Footer from '@/components/Footer';
+import { siteConfig } from '@/config/site.config';
 
 const Index = () => {
+  const hasEvents = siteConfig.events && siteConfig.events.length > 0;
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -19,7 +22,7 @@ const Index = () => {
         <Hero />
         <BookingSection />
         <MenuSection />
-        <MusicSection />
+        {hasEvents && <MusicSection />}
         <GallerySection />
         <AboutSection />
         <ReviewsSection />

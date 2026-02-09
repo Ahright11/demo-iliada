@@ -21,7 +21,7 @@ const LocationSection = () => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Χάρτης - Μουσική Γωνιά"
+              title={`Χάρτης - ${siteConfig.businessName}`}
             />
           </div>
 

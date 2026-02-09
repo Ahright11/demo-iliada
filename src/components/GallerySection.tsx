@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
+import { siteConfig } from '@/config/site.config';
 import heroImage from '@/assets/hero-taverna.jpg';
 import musicImage from '@/assets/music-performance.jpg';
 import moussakaImage from '@/assets/food-moussaka.jpg';
@@ -9,15 +10,16 @@ import tzatzikiImage from '@/assets/food-tzatziki.jpg';
 import terraceImage from '@/assets/gallery-terrace.jpg';
 import ownerImage from '@/assets/owner-portrait.jpg';
 
+const defaultAlts = ['Χώρος', 'Φαγητό', 'Βεράντα', 'Πιάτα', 'Ατμόσφαιρα', 'Θαλασσινά', 'Ορεκτικά', 'Ιδιοκτήτης'];
 const galleryImages = [
-  { src: heroImage, alt: 'Εσωτερικό ταβέρνας' },
-  { src: moussakaImage, alt: 'Μουσακάς' },
-  { src: terraceImage, alt: 'Βεράντα' },
-  { src: paidakiaImage, alt: 'Παϊδάκια' },
-  { src: musicImage, alt: 'Ζωντανή μουσική' },
-  { src: octopusImage, alt: 'Χταπόδι' },
-  { src: tzatzikiImage, alt: 'Τζατζίκι' },
-  { src: ownerImage, alt: 'Ιδιοκτήτης' },
+  { src: heroImage, alt: siteConfig.gallery?.[0]?.alt || defaultAlts[0] },
+  { src: moussakaImage, alt: siteConfig.gallery?.[1]?.alt || defaultAlts[1] },
+  { src: terraceImage, alt: siteConfig.gallery?.[2]?.alt || defaultAlts[2] },
+  { src: paidakiaImage, alt: siteConfig.gallery?.[3]?.alt || defaultAlts[3] },
+  { src: musicImage, alt: siteConfig.gallery?.[4]?.alt || defaultAlts[4] },
+  { src: octopusImage, alt: siteConfig.gallery?.[5]?.alt || defaultAlts[5] },
+  { src: tzatzikiImage, alt: defaultAlts[6] },
+  { src: ownerImage, alt: defaultAlts[7] },
 ];
 
 const GallerySection = () => {
@@ -28,7 +30,7 @@ const GallerySection = () => {
       <div className="taverna-container">
         <div className="text-center mb-12">
           <h2 className="taverna-heading mb-4">Φωτογραφίες</h2>
-          <p className="taverna-subheading">Στιγμές από τη Μουσική Γωνιά</p>
+          <p className="taverna-subheading">Στιγμές από {siteConfig.businessName}</p>
         </div>
 
         {/* Gallery Grid */}
